@@ -1,0 +1,22 @@
+# Use the login shell (read .profile)
+shell -$SHELL
+
+# turn off welcome message
+startup_message off
+
+# informative status line
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+
+# scrollback buffer
+defscrollback 5000
+
+# turn off visual bell
+vbell off
+
+# make scroll back work for terminal
+termcapinfo xterm-256color|xterm-color|xterm|xterms|xs|rxvt ti@:te@
+
+# Change the escape key to backtick (without ctrl)
+escape ``
