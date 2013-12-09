@@ -30,12 +30,12 @@ au FileType xml setlocal foldmethod=syntax
 function! Browser ()
   let line0 = getline (".")
   let line = matchstr (line0, "http[^ ]*")
-  :if line==""
-  let line = matchstr (line0, "ftp[^ ]*")
-  :endif
-  :if line==""
-  let line = matchstr (line0, "file[^ ]*")
-  :endif
+  if line=="" 
+      let line = matchstr (line0, "ftp[^ ]*")
+  endif
+  if line==""
+      let line = matchstr (line0, "file[^ ]*")
+  endif
   " echo line
   exec ":silent !firefox ".line
 endfunction
@@ -44,12 +44,18 @@ map \aw :call Browser ()<CR>
 " Solarized colorscheme
 let g:solarized_underline = 0
 syntax enable
-set background=light
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
 colorscheme solarized
 
 " GUI options
 " remove toolbar
-set guioptions-=T
+if has('gui_running')
+    set guioptions-=T
+endif
 
 " Signature
 nmap m<CR> :SignatureToggle<CR>

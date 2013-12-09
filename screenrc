@@ -1,5 +1,6 @@
 # Use the login shell (read .profile)
-shell -$SHELL
+# This is not necessary since we now move alias to bashrc instead of .profile
+# shell -$SHELL
 
 # turn off welcome message
 startup_message off
@@ -20,3 +21,9 @@ termcapinfo xterm-256color|xterm-color|xterm|xterms|xs|rxvt ti@:te@
 
 # Change the escape key to backtick (without ctrl)
 escape ``
+
+screen -t bash 0
+screen -t wiki 1
+screen -t code 2
+screen -t runtime 3
+select 0
