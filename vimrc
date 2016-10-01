@@ -1,62 +1,59 @@
-" Pathogen
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Turn on omni completion 
-autocmd FileType python set omnifunc=syntaxcomplete#Complete 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" My own settings
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+ 
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-jdaddy'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'indentpython.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+ 
+" Force *.md file to be markdown instead of Modula-2
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set backupdir=$USERPROFILE\temp
 
-" vimwiki settings
-let g:vimwiki_list=[{'path':'C:\Users\ywang\git\vimwiki',
-            \ 'path_html':'C:\Users\ywang\vimwiki_html',
-            \ 'template_path':'C:\Users\ywang\git\wikitemplates\',
-            \ 'template_default':'my_default',
-            \ 'template_ext':'.html'
-            \}]
-" hide my %pp directives
-au BufEnter *.wiki syntax match mypp '^%pp .*' conceal cchar=%
+" From https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
+let python_highlight_all=1
 
-" XML folding
-let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
-
-" Open URL under cursor
-function! Browser ()
-  let line0 = getline (".")
-  let line = matchstr (line0, "http[^ ]*")
-  if line=="" 
-      let line = matchstr (line0, "ftp[^ ]*")
-  endif
-  if line==""
-      let line = matchstr (line0, "file[^ ]*")
-  endif
-  " echo line
-  exec ":silent !firefox ".line
-endfunction
-map \aw :call Browser ()<CR>
-
-" Solarized colorscheme
-let g:solarized_underline = 0
-syntax enable
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-colorscheme solarized
-
-" GUI options
-" remove toolbar
-if has('gui_running')
-    set guioptions-=T
-endif
-
-" Signature
-nmap m<CR> :SignatureToggle<CR>
+" YouCompleteMe 
+" Esure the autocomplete window goes away when we are done with it
+let g:ycm_autoclose_preview_window_after_completion=1
+" Shortcut for goto definition
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
