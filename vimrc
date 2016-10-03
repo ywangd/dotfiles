@@ -114,11 +114,11 @@ let g:syntastic_mode_map = {"mode": "passive"}
 " --------------------------------------------------
 " Tagbar toggle
 " --------------------------------------------------
-map <F8> :TagbarToggle<CR>
+noremap <F8> :TagbarToggle<CR>
 
 
 " --------------------------------------------------
 " MiniBufExpl
 " --------------------------------------------------
 "  C-m is the same as <CR>
-map <C-m> :MBEToggle<CR>
+noremap <C-m> :MBEToggle<CR>
