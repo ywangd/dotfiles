@@ -1,0 +1,30 @@
+{
+	"segments": {
+		"right": [
+            {
+                "function": "ywangd_powerline_segments.memory_usage",
+                "priority": 50
+            },
+			{
+				"function": "powerline.segments.common.sys.system_load",
+				"priority": 50
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"args": {
+					"format": "%m-%d %H:%M",
+					"istime": true
+				}
+			},
+            {
+                "function": "powerline.segments.common.bat.battery",
+                "name": "battery",
+                "args": {
+                    "online": "🔌 ",
+                    "offline": "🔋 "
+                },
+                "priority": 50
+            }
+		]
+	}
+}

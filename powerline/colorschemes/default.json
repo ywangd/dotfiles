@@ -1,0 +1,6 @@
+{
+    "groups": {
+        "memory_usage_gradient": {"fg": "green_yellow_red", "bg": "gray1", "attrs": []},
+        "battery_gradient": { "fg": "green_yellow_orange_red", "bg": "gray4", "attrs": [] }
+    }
+}
