@@ -21,7 +21,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-jdaddy'
 Plugin 'tpope/vim-vinegar'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -29,7 +29,7 @@ Plugin 'indentpython.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
-Plugin 'fholgado/minibufexpl.vim'
+"Plugin 'fholgado/minibufexpl.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -121,4 +121,4 @@ noremap <F8> :TagbarToggle<CR>
 " MiniBufExpl
 " --------------------------------------------------
 "  C-m is the same as <CR>
-noremap <C-m> :MBEToggle<CR>
+" noremap <C-m> :MBEToggle<CR>
